@@ -1,0 +1,49 @@
+import javax.swing.JOptionPane;
+
+public class CircularVolume
+{
+	public static double ComputeVolume(double radius)
+	{
+		return ((4*Math.PI)/3)*(radius)*(radius)*(radius);
+	}
+	public static double ComputeVolume(double radius, double height)
+	{
+		return ((Math.PI)*(radius)*(radius)*(height));
+	}
+	public static double ComputeVolume(double a_axis, double b_axis, double c_axis) {
+		return ((4/3)*Math.PI*a_axis*b_axis*c_axis);
+	}
+	public static void getSphere() {
+		double radius = Validate.get_valid_input("radius");
+		double volume = ComputeVolume(radius);
+		JOptionPane.showMessageDialog(null, 
+				"Object Type: Sphere\n" +
+				"Radius: " + radius + "\n" +
+				"Volume: " + volume
+				);
+	}
+	public static void getCylinder() {
+		double radius = Validate.get_valid_input("radius");
+		double height = Validate.get_valid_input("height");
+		double volume = ComputeVolume(radius, height);
+		JOptionPane.showMessageDialog(null, 
+				"Object Type: Sphere\n" +
+				"Radius: " + radius + "\n" +
+				"Height: " + height + "\n" +
+				"Volume: " + volume
+				);
+	}
+	public static void getEllipse() {
+		double a = Validate.get_valid_input("a-axis");
+		double b = Validate.get_valid_input("b-axis");
+		double c = Validate.get_valid_input("c-axis");
+		double volume = ComputeVolume(a,b,c);
+		JOptionPane.showMessageDialog(null, 
+				"Object Type: Sphere\n" +
+				"a-axis: " + a + "\n" +
+				"b-axis: " + b + "\n" +
+				"c-axis: " + c + "\n" +
+				"Volume: " + volume
+				);
+	}
+}

@@ -1,0 +1,54 @@
+import javax.swing.JOptionPane;
+
+public class Validate
+{	
+	public static float get_valid_input()
+	{
+		String input;
+		float nb = 0;
+		boolean valid = false;
+		while(!valid)
+		{
+			try 
+			{
+				input = JOptionPane.showInputDialog("Enter a temperature to convert: ");
+				if(input == null)
+				{
+					System.exit(0);
+				}
+				else
+				{
+					nb = Float.parseFloat(input);
+					if (nb > 200)
+					{
+						throw new Exception("Input value greater than 200");
+					}
+					if (nb < -100)
+					{
+						throw new Exception("Input value less than -100");
+					}
+					else
+					{
+						valid = true;
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				JOptionPane.showMessageDialog(null, "Invalid Input. Please enter only numbers between -100 to 200.");
+			}
+		}
+		return (nb);
+	}
+	
+	public static boolean keep_going()
+	{
+		int reply = JOptionPane.showConfirmDialog(null, "Would you like to keep going?", "TempConvertApp", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+        	return (true);
+        }
+        else {
+           return (false);
+        }
+	}
+}

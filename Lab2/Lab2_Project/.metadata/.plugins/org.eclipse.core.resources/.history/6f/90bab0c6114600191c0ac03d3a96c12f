@@ -1,0 +1,68 @@
+import javax.swing.JOptionPane;
+/*
+ * The ComputeVolume method is an overloaded method that takes in 1, 2, or 3 parameters and returns the volume of the object. 
+ * If you input 1 parameter  the function returns the volume of the Sphere.
+ * it does this using the volume of sphere formula (4/3) * pi * r^3 where r is the radius input of the function.
+ * 
+ * If you input 2 parameters the function returns the volume of the Cylinder.
+ * it does this using the volume of cylinder formula pi*r^2 * h. where r is the radius and h is the height.
+ * 
+ * If you input 3 parameters the function returns the volume of the Ellipsoid.
+ * it does this using the volume of ellipsoid formula (4/3) * a-axis * b-axis * c-axis.
+ */
+public class CircularVolume
+{
+	public static double ComputeVolume(double radius)
+	{
+		return ((4*Math.PI)/3)*(radius)*(radius)*(radius);
+	}
+	public static double ComputeVolume(double radius, double height)
+	{
+		return ((Math.PI)*(radius)*(radius)*(height));
+	}
+	public static double ComputeVolume(double a_axis, double b_axis, double c_axis) {
+		return ((4.0/3.0) * Math.PI * a_axis * b_axis * c_axis);
+	}
+	/*
+	 * The getSphere() function gets the radius using the get_valid_input function, computes the volume, and shows the result.
+	 */
+	public static void getSphere() {
+		double radius = Validate.get_valid_input("radius");
+		double volume = ComputeVolume(radius);
+		JOptionPane.showMessageDialog(null, 
+				"Object Type: Sphere\n" +
+				"Radius: " + radius + "\n" +
+				"Volume: " + volume
+				);
+	}
+	/*
+	 * The getSphere() function gets the radius and height using the get_valid_input function, computes the volume, and shows the result.
+	 */
+	public static void getCylinder() {
+		double radius = Validate.get_valid_input("radius");
+		double height = Validate.get_valid_input("height");
+		double volume = ComputeVolume(radius, height);
+		JOptionPane.showMessageDialog(null, 
+				"Object Type: Cylinder\n" +
+				"Radius: " + radius + "\n" +
+				"Height: " + height + "\n" +
+				"Volume: " + volume
+				);
+	}
+	/*
+	 * The getSphere() function gets the a-axis, b-axis, and c-axis using the get_valid_input function, computes the volume, and shows the result.
+	 */
+	public static void getEllipse() {
+		double a = Validate.get_valid_input("a-axis");
+		double b = Validate.get_valid_input("b-axis");
+		double c = Validate.get_valid_input("c-axis");
+		double volume = ComputeVolume(a,b,c);
+		JOptionPane.showMessageDialog(null, 
+				"Object Type: Ellipse\n" +
+				"a-axis: " + a + "\n" +
+				"b-axis: " + b + "\n" +
+				"c-axis: " + c + "\n" +
+				"Volume: " + volume
+				);
+	}
+}

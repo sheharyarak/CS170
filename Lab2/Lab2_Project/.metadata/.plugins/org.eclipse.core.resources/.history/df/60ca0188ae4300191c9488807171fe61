@@ -1,0 +1,39 @@
+import javax.swing.JOptionPane;
+
+public class temp_conv {
+
+	public static void main(String[] args) {
+		String op[] =
+			{
+					"Celsius to Farenheit",
+					"Farenheit to Ceslius",
+					"EXIT"
+			};
+		String selected;
+		while (true)
+		{
+			selected = (String)JOptionPane.showInputDialog(null, "Select a conversion", "TempConverterApp", JOptionPane.QUESTION_MESSAGE, null, op, op[0]);
+			if (selected.equals(op[0]))
+			{
+				TempConvertWithValidate.C_to_F();
+				if(!Validate.keep_going())
+				{
+					break;
+				}
+			}
+			else if (selected.equals(op[1]))
+			{
+				TempConvertWithValidate.F_to_C();
+				if(!Validate.keep_going())
+				{
+					break;
+				}
+			}
+			else
+			{
+				break;
+			}
+		}
+		System.exit(0);;
+	}
+}

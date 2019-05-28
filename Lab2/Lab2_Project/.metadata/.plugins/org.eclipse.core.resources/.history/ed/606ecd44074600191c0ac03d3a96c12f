@@ -1,0 +1,57 @@
+import javax.swing.JOptionPane;
+
+public class CircularVolumeApp {
+
+	public static void main(String[] args) {
+		String op[] =
+			{
+					"Sphere",
+					"Cylinder",
+					"Ellipse",
+					"Exit"
+			};
+		String selected;
+		while (true)
+		{
+			selected = (String)JOptionPane.showInputDialog(null, "Select a conversion", "TempConverterApp", JOptionPane.QUESTION_MESSAGE, null, op, op[0]);
+			if (selected != null && selected.length() > 0)
+			{
+				if (selected.equals(op[0]))
+				{
+					CircularVolume.getSphere();
+					if(!Validate.keep_going())
+					{
+						break;
+					}
+				}
+				else if (selected.equals(op[1]))
+				{
+					CircularVolume.getCylinder();
+					if(!Validate.keep_going())
+					{
+						break;
+					}
+				}
+				else if (selected.equals(op[2]))
+				{
+					CircularVolume.getEllipse();
+					if(!Validate.keep_going())
+					{
+						break;
+					}
+					break;
+				}
+				else {
+					break;
+				}
+			}
+			else
+			{
+				System.exit(0);
+			}
+			
+		}
+		return;
+	}
+
+}

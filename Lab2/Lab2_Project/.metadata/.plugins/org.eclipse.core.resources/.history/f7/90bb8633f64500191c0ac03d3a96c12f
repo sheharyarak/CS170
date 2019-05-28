@@ -1,0 +1,19 @@
+import javax.swing.JOptionPane;
+
+public class Sphere extends CircularVolume {
+	double radius;
+	public void getSphere() {
+		this.radius = Validate.get_valid_input("radius");
+	}
+	public double getVolume()
+	{
+		return ComputeVolume(radius);
+	}
+	public void getInfo(){
+		JOptionPane.showMessageDialog(null, 
+				"Object Type:" + ObjType + "\n" +
+				"Radius: " + radius + "\n" +
+				"Volume: " + getVolume()
+				);
+	}
+}
